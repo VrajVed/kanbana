@@ -24,18 +24,34 @@ const FREE_MODELS = [
   "qwen/qwen3-coder:free",
 ];
 
-const MAX_TURNS = 5;
+const MAX_TURNS = 10;
 const REQUEST_TIMEOUT_MS = 120_000;
 
-const SYSTEM_PROMPT = `You are a kanban board executor.
-
-Your job is to modify the kanban board by calling tools. You do not chat. You do not explain. You do not apologize.
-
-Rules:
-- Use the provided tools to fulfill the user's request.
-- If you need IDs, use get_board, get_lists, or get_tasks first.
-- After you have completed all necessary tool calls, respond with exactly: DONE
-- Do not respond with anything other than tool calls or the word DONE.`;
+const SYSTEM_PROMPT = [
+  "You are a kanban board executor.",
+  "",
+  "Your job is to modify the kanban board by calling tools. You do not chat. You do not explain. You do not apologize.",
+  "",
+  "Rules:",
+  "- Use the provided tools to fulfill the user's request.",
+  "- ALWAYS use get_full_context first if you need to know board IDs, list IDs, or task IDs.",
+  "- When moving multiple tasks, use move_tasks_bulk to move them all in one tool call.",
+  "- After you have completed all necessary tool calls, respond with exactly: DONE",
+  "- Do not respond with anything other than tool calls or the word DONE.",
+  "",
+  "Examples:",
+  "",
+  'User: "Make a new list called Review and move all To Do tasks there"',
+  "1. get_full_context",
+  '2. create_list(boardId=<board id>, displayName="Review")',
+  "3. move_tasks_bulk(taskIds=[<ids of tasks currently in To Do>], listId=<Review list id>)",
+  "4. DONE",
+  "",
+  'User: "Add a task called Write tests to In Progress"',
+  "1. get_full_context",
+  '2. create_task(listId=<In Progress id>, title="Write tests")',
+  "3. DONE",
+].join("\n");
 
 // ---------- Tool definitions ----------
 
@@ -49,8 +65,22 @@ interface ToolDefinition {
 
 const tools: ToolDefinition[] = [
   {
+    name: "get_full_context",
+    description: "Get the complete board context: boards, lists, and all active tasks. Use this first when you need IDs.",
+    inputSchema: z.object({}),
+    parameters: { type: "object", properties: {} },
+    execute: () => {
+      const board = KanbanModel.getBoard();
+      return {
+        boards: board.boards.filter((b) => b.deletedAt === null),
+        lists: board.Lists.filter((l) => l.deletedAt === null),
+        tasks: Object.values(board.tasks).filter((t) => t.deletedAt === null),
+      };
+    },
+  },
+  {
     name: "get_board",
-    description: "Get the full kanban board state",
+    description: "Get the full kanban board state including deleted items",
     inputSchema: z.object({}),
     parameters: { type: "object", properties: {} },
     execute: () => KanbanModel.getBoard(),
@@ -207,7 +237,7 @@ const tools: ToolDefinition[] = [
   },
   {
     name: "move_task",
-    description: "Move a task from one list to another",
+    description: "Move a single task from one list to another",
     inputSchema: z.object({
       taskId: z.string().uuid(),
       listId: z.string().uuid(),
@@ -221,6 +251,38 @@ const tools: ToolDefinition[] = [
       },
     },
     execute: ({ taskId, listId }: any) => KanbanModel.moveTask(taskId, listId),
+  },
+  {
+    name: "move_tasks_bulk",
+    description: "Move multiple tasks to a destination list in one call",
+    inputSchema: z.object({
+      taskIds: z.array(z.string().uuid()).min(1),
+      listId: z.string().uuid(),
+    }),
+    parameters: {
+      type: "object",
+      required: ["taskIds", "listId"],
+      properties: {
+        taskIds: {
+          type: "array",
+          items: { type: "string", format: "uuid" },
+          description: "Array of task IDs to move",
+        },
+        listId: { type: "string", format: "uuid", description: "ID of the destination list" },
+      },
+    },
+    execute: ({ taskIds, listId }: any) => {
+      const results = [];
+      for (const taskId of taskIds) {
+        try {
+          const result = KanbanModel.moveTask(taskId, listId);
+          results.push({ taskId, success: true, result });
+        } catch (err) {
+          results.push({ taskId, success: false, error: (err as Error).message });
+        }
+      }
+      return { moved: results.length, results };
+    },
   },
   {
     name: "delete_task",
