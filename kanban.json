@@ -1,0 +1,110 @@
+{
+  "Boardname": "Board1",
+  "boards": [
+    {
+      "id": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "isLocked": false,
+      "displayName": "Board1",
+      "order": 0,
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    }
+  ],
+  "Lists": [
+    {
+      "id": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "To Do",
+      "order": 0,
+      "taskIds": ["3e67332d-d08b-4f52-a2a7-9c2898bdc160"],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "70ab62ee-98fa-4a64-b085-105b80384ed7",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "In Progress",
+      "order": 1,
+      "taskIds": ["26f76669-928f-41a9-8005-978cb264e6eb"],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "3e95a0de-f701-4654-930a-056009f5118b",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "Done",
+      "order": 2,
+      "taskIds": ["3b4308ab-84a5-4fca-8cf1-f06495475b1e"],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    }
+  ],
+  "tasks": {
+    "3e67332d-d08b-4f52-a2a7-9c2898bdc160": {
+      "id": "3e67332d-d08b-4f52-a2a7-9c2898bdc160",
+      "title": "Design landing page",
+      "description": "Create the initial design for the landing page",
+      "subTasks": [
+        {
+          "id": "64ffc8e7-64f4-40cf-b369-82508adcabcb",
+          "title": "Choose color palette",
+          "description": "",
+          "subTasks": [],
+          "assignee": null,
+          "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+          "listId": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+          "createdAt": "2024-06-21T10:00:00.000Z",
+          "updatedAt": "2024-06-21T10:00:00.000Z",
+          "deletedAt": null
+        }
+      ],
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    "26f76669-928f-41a9-8005-978cb264e6eb": {
+      "id": "26f76669-928f-41a9-8005-978cb264e6eb",
+      "title": "Build API",
+      "description": "Implement the CRUD API",
+      "subTasks": [],
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "70ab62ee-98fa-4a64-b085-105b80384ed7",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    "3b4308ab-84a5-4fca-8cf1-f06495475b1e": {
+      "id": "3b4308ab-84a5-4fca-8cf1-f06495475b1e",
+      "title": "Set up repo",
+      "description": "Initialize the project repository",
+      "subTasks": [
+        {
+          "id": "34d069f5-6cfb-4629-99b7-99477889b5ef",
+          "title": "Create kanban.json",
+          "description": "",
+          "subTasks": [],
+          "assignee": null,
+          "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+          "listId": "3e95a0de-f701-4654-930a-056009f5118b",
+          "createdAt": "2024-06-21T10:00:00.000Z",
+          "updatedAt": "2024-06-21T10:00:00.000Z",
+          "deletedAt": null
+        }
+      ],
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "3e95a0de-f701-4654-930a-056009f5118b",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    }
+  }
+}

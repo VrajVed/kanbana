@@ -1,0 +1,168 @@
+{
+  "Boardname": "Board1",
+  "boards": [
+    {
+      "id": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "isLocked": false,
+      "displayName": "Board1",
+      "order": 0,
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "2dad05a8-d4ff-4f2a-b145-652ae543da64",
+      "isLocked": false,
+      "displayName": "test",
+      "order": 1,
+      "createdAt": "2026-06-21T17:15:31.807Z",
+      "updatedAt": "2026-06-21T17:15:31.807Z",
+      "deletedAt": null
+    },
+    {
+      "id": "c3f97d11-9230-44f6-873f-104a558e8b27",
+      "isLocked": false,
+      "displayName": "test",
+      "order": 0,
+      "createdAt": "2026-06-21T17:16:26.934Z",
+      "updatedAt": "2026-06-21T17:16:26.934Z",
+      "deletedAt": null
+    }
+  ],
+  "Lists": [
+    {
+      "id": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "To Do",
+      "order": 0,
+      "taskIds": [
+        "6a088f3d-d042-4156-a223-c0fad86b4b91"
+      ],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2026-06-21T17:16:35.775Z",
+      "deletedAt": null
+    },
+    {
+      "id": "70ab62ee-98fa-4a64-b085-105b80384ed7",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "In Progress",
+      "order": 1,
+      "taskIds": [
+        "26f76669-928f-41a9-8005-978cb264e6eb"
+      ],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "3e95a0de-f701-4654-930a-056009f5118b",
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "displayName": "Done",
+      "order": 2,
+      "taskIds": [
+        "3b4308ab-84a5-4fca-8cf1-f06495475b1e"
+      ],
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "22d42c18-2fd2-44b3-81b2-cb6535fc68b8",
+      "boardId": "2dad05a8-d4ff-4f2a-b145-652ae543da64",
+      "displayName": "To Do",
+      "order": 0,
+      "taskIds": [],
+      "createdAt": "2026-06-21T17:15:37.490Z",
+      "updatedAt": "2026-06-21T17:15:37.490Z",
+      "deletedAt": null
+    },
+    {
+      "id": "f4147d80-d81a-4843-b087-b95717714977",
+      "boardId": "c3f97d11-9230-44f6-873f-104a558e8b27",
+      "displayName": "To Do",
+      "order": 0,
+      "taskIds": [
+        "3e67332d-d08b-4f52-a2a7-9c2898bdc160"
+      ],
+      "createdAt": "2026-06-21T17:16:31.238Z",
+      "updatedAt": "2026-06-21T17:16:35.775Z",
+      "deletedAt": null
+    }
+  ],
+  "tasks": {
+    "3e67332d-d08b-4f52-a2a7-9c2898bdc160": {
+      "id": "3e67332d-d08b-4f52-a2a7-9c2898bdc160",
+      "title": "Design landing page",
+      "description": "Create the initial design for the landing page",
+      "assignee": null,
+      "boardId": "c3f97d11-9230-44f6-873f-104a558e8b27",
+      "listId": "f4147d80-d81a-4843-b087-b95717714977",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2026-06-21T17:16:35.775Z",
+      "deletedAt": null,
+      "subTasks": [
+        {
+          "id": "64ffc8e7-64f4-40cf-b369-82508adcabcb",
+          "title": "Choose color palette",
+          "description": "",
+          "assignee": null,
+          "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+          "listId": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+          "createdAt": "2024-06-21T10:00:00.000Z",
+          "updatedAt": "2024-06-21T10:00:00.000Z",
+          "deletedAt": null,
+          "subTasks": []
+        }
+      ]
+    },
+    "26f76669-928f-41a9-8005-978cb264e6eb": {
+      "id": "26f76669-928f-41a9-8005-978cb264e6eb",
+      "title": "Build API",
+      "description": "Implement the CRUD API",
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "70ab62ee-98fa-4a64-b085-105b80384ed7",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null,
+      "subTasks": []
+    },
+    "3b4308ab-84a5-4fca-8cf1-f06495475b1e": {
+      "id": "3b4308ab-84a5-4fca-8cf1-f06495475b1e",
+      "title": "Set up repo",
+      "description": "Initialize the project repository",
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "3e95a0de-f701-4654-930a-056009f5118b",
+      "createdAt": "2024-06-21T10:00:00.000Z",
+      "updatedAt": "2024-06-21T10:00:00.000Z",
+      "deletedAt": null,
+      "subTasks": [
+        {
+          "id": "34d069f5-6cfb-4629-99b7-99477889b5ef",
+          "title": "Create kanban.json",
+          "description": "",
+          "assignee": null,
+          "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+          "listId": "3e95a0de-f701-4654-930a-056009f5118b",
+          "createdAt": "2024-06-21T10:00:00.000Z",
+          "updatedAt": "2024-06-21T10:00:00.000Z",
+          "deletedAt": null,
+          "subTasks": []
+        }
+      ]
+    },
+    "6a088f3d-d042-4156-a223-c0fad86b4b91": {
+      "id": "6a088f3d-d042-4156-a223-c0fad86b4b91",
+      "title": "Neetcode 150 Roadmap",
+      "description": "Implement stack solution",
+      "assignee": null,
+      "boardId": "57d0381d-ada6-474b-b695-fef55f87e71e",
+      "listId": "5dfb06cc-7026-4cf5-be78-0f48e47b4c02",
+      "createdAt": "2026-06-21T17:12:47.286Z",
+      "updatedAt": "2026-06-21T17:13:21.793Z",
+      "deletedAt": null,
+      "subTasks": []
+    }
+  }
+}
